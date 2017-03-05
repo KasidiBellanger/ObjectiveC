@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66C25C281E6CA546004DEFBE /* CameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C25C271E6CA546004DEFBE /* CameraRoll.m */; };
 		66C5CD5D1E63682A00A1431C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C5CD5C1E63682A00A1431C /* main.m */; };
 		66C5CD601E63682A00A1431C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C5CD5F1E63682A00A1431C /* AppDelegate.m */; };
 		66C5CD631E63682A00A1431C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C5CD621E63682A00A1431C /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66C25C261E6CA546004DEFBE /* CameraRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraRoll.h; sourceTree = "<group>"; };
+		66C25C271E6CA546004DEFBE /* CameraRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraRoll.m; sourceTree = "<group>"; };
 		66C5CD581E63682A00A1431C /* Testing1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testing1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C5CD5C1E63682A00A1431C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66C5CD5E1E63682A00A1431C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				66C5CD5F1E63682A00A1431C /* AppDelegate.m */,
 				66C5CD611E63682A00A1431C /* ViewController.h */,
 				66C5CD621E63682A00A1431C /* ViewController.m */,
+				66C25C261E6CA546004DEFBE /* CameraRoll.h */,
+				66C25C271E6CA546004DEFBE /* CameraRoll.m */,
 				66C5CD641E63682A00A1431C /* Main.storyboard */,
 				66C5CD671E63682A00A1431C /* Assets.xcassets */,
 				66C5CD691E63682A00A1431C /* LaunchScreen.storyboard */,
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66C5CD631E63682A00A1431C /* ViewController.m in Sources */,
+				66C25C281E6CA546004DEFBE /* CameraRoll.m in Sources */,
 				66C5CD601E63682A00A1431C /* AppDelegate.m in Sources */,
 				66C5CD5D1E63682A00A1431C /* main.m in Sources */,
 			);
@@ -309,6 +315,7 @@
 				66C5CD711E63682A00A1431C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
