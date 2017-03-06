@@ -11,6 +11,7 @@
 
 @interface CameraRoll ()
 
+
 @end
 
 @implementation CameraRoll
@@ -23,6 +24,7 @@
     // Check if image access is authorized
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.allowsEditing = YES;
         // Use delegate methods to get result of photo library -- Look up UIImagePicker delegate methods
         imagePicker.delegate = self;
         [self presentViewController:imagePicker animated:true completion:nil];
@@ -37,8 +39,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
     // Do something with picked image
 }
+
 
 - (void)requestAuthorizationWithRedirectionToSettings {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -73,6 +78,14 @@
     });
 }
 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"showDetailSegue"]){
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        ViewController *controller = (ViewController *)navController.topViewController;
+        controller.image = self.image;
+    }
+}
 
 /*
 #pragma mark - Navigation

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Camera Roll-->
+        <!--View Controller-->
         <scene sceneID="z5E-0s-swS">
             <objects>
-                <viewController id="x5h-DS-7IC" customClass="CameraRoll" sceneMemberID="viewController">
+                <viewController id="x5h-DS-7IC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mhk-Ce-owv"/>
                         <viewControllerLayoutGuide type="bottom" id="nDV-S0-Hxj"/>
@@ -71,6 +71,30 @@
             </objects>
             <point key="canvasLocation" x="425" y="251"/>
         </scene>
+        <!--Camera Roll-->
+        <scene sceneID="t28-Pa-eIp">
+            <objects>
+                <viewController id="RTM-vn-ndf" customClass="CameraRoll" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8sz-3R-UQj"/>
+                        <viewControllerLayoutGuide type="bottom" id="IB0-zy-jWR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qgy-19-Uw1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="la1-HF-Oy1">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="jJL-se-Eb5"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="x5h-DS-7IC" kind="show" id="FPf-Do-dhM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOI-C4-JEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1114" y="251"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lXW-dP-vkD">
             <objects>
@@ -80,12 +104,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="x5h-DS-7IC" kind="relationship" relationship="rootViewController" id="NBN-h9-fwZ"/>
+                        <segue destination="RTM-vn-ndf" kind="relationship" relationship="rootViewController" id="Ts1-Qm-AiO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGI-ea-2pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1114" y="247"/>
+            <point key="canvasLocation" x="-1882" y="251"/>
         </scene>
         <!--Tab1-->
         <scene sceneID="vXy-m7-wwG">

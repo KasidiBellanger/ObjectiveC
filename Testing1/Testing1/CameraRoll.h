@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface CameraRoll : UIImagePickerController
+
+@property(nonatomic) UIImage *image;
 
 @end
