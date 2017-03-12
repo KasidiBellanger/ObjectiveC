@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
+#import <Photos/Photos.h>
 
 @interface CameraRoll : UIImagePickerController
 
-@property(nonatomic) UIImage *image;
+@property(nonatomic) UIImage *chosenImage;
 
 @end

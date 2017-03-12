@@ -7,7 +7,7 @@
 //
 
 #import "CameraRoll.h"
-#import <Photos/Photos.h>
+
 
 @interface CameraRoll ()
 
@@ -19,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+//opens the camera roll "image picker"
+-(void)viewDidAppear:(BOOL)animated{
     
     UIImagePickerController* imagePicker = [[UIImagePickerController alloc]init];
     // Check if image access is authorized
@@ -27,9 +31,8 @@
         imagePicker.allowsEditing = YES;
         // Use delegate methods to get result of photo library -- Look up UIImagePicker delegate methods
         imagePicker.delegate = self;
-        [self presentViewController:imagePicker animated:true completion:nil];
+        [self presentViewController:imagePicker animated:false completion:nil];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,14 +40,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+//grabing the selected image, and pushing to ViewController.m
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.chosenImage = info[UIImagePickerControllerOriginalImage];
+
+    ViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraImageView"];
+
+    controller.selectedImage = self.chosenImage;
+   
+    [self.navigationController pushViewController:controller animated:YES];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    // Do something with picked image
 }
 
-
+//getting permision from user for photos
+/*
 - (void)requestAuthorizationWithRedirectionToSettings {
     dispatch_async(dispatch_get_main_queue(), ^{
         PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
@@ -77,15 +88,8 @@
         }
     });
 }
+*/
 
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"showDetailSegue"]){
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        ViewController *controller = (ViewController *)navController.topViewController;
-        controller.image = self.image;
-    }
-}
 
 /*
 #pragma mark - Navigation

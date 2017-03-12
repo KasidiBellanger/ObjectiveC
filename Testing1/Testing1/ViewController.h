@@ -10,8 +10,9 @@
 
 @interface ViewController : UIViewController
 
-@property(nonatomic) UIImage *image;
 
+@property (nonatomic, assign) IBOutlet UIImageView *pickedImage;
+@property(nonatomic) UIImage *selectedImage;
 
 @end
 

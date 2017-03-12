@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="z5E-0s-swS">
             <objects>
-                <viewController id="x5h-DS-7IC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraImageView" id="x5h-DS-7IC" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mhk-Ce-owv"/>
                         <viewControllerLayoutGuide type="bottom" id="nDV-S0-Hxj"/>
@@ -26,27 +27,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera Roll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Os-Yn-Dp4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Roll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Os-Yn-Dp4">
                                 <rect key="frame" x="123" y="86" width="129" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kz-VW-rLv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2kz-VW-rLv">
                                 <rect key="frame" x="16" y="115" width="343" height="202"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2kz-VW-rLv" firstAttribute="leading" secondItem="zDs-fM-Wo0" secondAttribute="leading" constant="16" id="E8d-xE-zFp"/>
+                            <constraint firstItem="2Os-Yn-Dp4" firstAttribute="leading" secondItem="zDs-fM-Wo0" secondAttribute="leadingMargin" constant="107" id="H8o-9v-ZBd"/>
+                            <constraint firstAttribute="trailing" secondItem="2kz-VW-rLv" secondAttribute="trailing" constant="16" id="WJ4-OS-pLG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Os-Yn-Dp4" secondAttribute="trailing" constant="107" id="WhW-wl-xhH"/>
+                            <constraint firstItem="2kz-VW-rLv" firstAttribute="top" secondItem="mhk-Ce-owv" secondAttribute="bottom" constant="51" id="a0c-aM-pUE"/>
+                            <constraint firstItem="2Os-Yn-Dp4" firstAttribute="top" secondItem="mhk-Ce-owv" secondAttribute="bottom" constant="22" id="p8O-zb-dVR"/>
+                            <constraint firstItem="nDV-S0-Hxj" firstAttribute="top" secondItem="2kz-VW-rLv" secondAttribute="bottom" constant="350" id="wQh-Uu-SzB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QQf-CI-6st">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="hnk-XB-h5Q">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="hnk-XB-h5Q">
                             <connections>
-                                <segue destination="MeZ-cB-bF3" kind="show" id="wGM-IS-VLl"/>
+                                <action selector="backPressed:" destination="x5h-DS-7IC" id="Fmh-FJ-L4e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pickedImage" destination="2kz-VW-rLv" id="NJp-Bn-TPN"/>
+                        <outlet property="view" destination="2kz-VW-rLv" id="lxf-Xi-Hhb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78y-Fi-TcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +86,7 @@
         <!--Camera Roll-->
         <scene sceneID="t28-Pa-eIp">
             <objects>
-                <viewController id="RTM-vn-ndf" customClass="CameraRoll" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageController" id="RTM-vn-ndf" customClass="CameraRoll" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8sz-3R-UQj"/>
                         <viewControllerLayoutGuide type="bottom" id="IB0-zy-jWR"/>
@@ -88,7 +100,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="jJL-se-Eb5"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="x5h-DS-7IC" kind="show" id="FPf-Do-dhM"/>
+                        <segue destination="x5h-DS-7IC" kind="show" identifier="ImageController" id="FBb-lC-kci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOI-C4-JEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
